@@ -1,9 +1,9 @@
 #!pip install -q gradio
 #!pip install -q git+https://github.com/huggingface/transformers.git
 import gradio as gr
-%tensorflow_version 1.x
+#%tensorflow_version 1.x
 #!pip install gpt-2-simple
-import gpt_2_simple as gpt
+import gpt_2_simple as gpt2
 import tensorflow as tf
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
 
@@ -11,6 +11,9 @@ from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
 
 from google.colab import drive
 drive.mount('/content/drive')
+
+
+sess = gpt2.start_tf_sess()
 
 gpt2.load_gpt2(sess,checkpoint_dir='/content/drive/MyDrive/GPT2_Project/checkpoint',model_dir='/content/drive/MyDrive/GPT2_Project/models')
 
@@ -38,3 +41,4 @@ def generating_text(initial_text):
 # launch a gradio interface
 output_text = gr.outputs.Textbox()
 gr.Interface(generating_text,"text", "text",capture_session=True).launch()
+
