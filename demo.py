@@ -1,8 +1,8 @@
-!pip install -q gradio
-!pip install -q git+https://github.com/huggingface/transformers.git
+#!pip install -q gradio
+#!pip install -q git+https://github.com/huggingface/transformers.git
 import gradio as gr
 %tensorflow_version 1.x
-!pip install gpt-2-simple
+#!pip install gpt-2-simple
 import gpt_2_simple as gpt
 import tensorflow as tf
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
